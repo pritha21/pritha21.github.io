@@ -1,7 +1,538 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pritha Saha - Product Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .resume-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .name {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #ecf0f1;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #bdc3c7;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 0;
+        }
+
+        .sidebar {
+            background: #f8f9fa;
+            padding: 40px;
+            border-right: 1px solid #e9ecef;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .job {
+            margin-bottom: 35px;
+            padding: 25px;
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid #3498db;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .job:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .job-header {
+            margin-bottom: 15px;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-size: 1.1rem;
+            color: #3498db;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .duration {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .achievements {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .achievements li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            color: #34495e;
+            line-height: 1.7;
+        }
+
+        .achievements li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 25px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 3px 10px rgba(52, 152, 219, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .education-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #e74c3c;
+        }
+
+        .degree {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .institution {
+            color: #3498db;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .edu-duration {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .profile-highlights {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .profile-highlights ul {
+            list-style: none;
+        }
+
+        .profile-highlights li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .profile-highlights li::before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            color: #f1c40f;
+            font-size: 1.2rem;
+        }
+
+        .languages {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .language {
+            background: #ecf0f1;
+            color: #2c3e50;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .additional-info {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .name {
+                font-size: 2.2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .sidebar, .content {
+                padding: 25px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <div class="container">
+        <div class="resume-card fade-in">
+            <header class="header">
+                <div class="header-content">
+                    <h1 class="name">Pritha Saha</h1>
+                    <p class="title">Product Manager (Feed Analytics)</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <span>pritha1989@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📱</span>
+                            <span>+91 7503139201</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="main-content">
+                <aside class="sidebar">
+                    <section class="section">
+                        <h2 class="section-title">Profile</h2>
+                        <div class="profile-highlights">
+                            <ul>
+                                <li>11+ years of experience across diverse industries – Media, Retail, Healthcare, Consumer Technology</li>
+                                <li>Experienced in end-to-end analytics workflows: data extraction, transformation, visualization, and reporting</li>
+                                <li>Proven track record of enabling strategic business and product decisions through data-driven insights</li>
+                                <li>Strong experience in working with cross-functional teams, including Product, Engineering, Marketing, and AI/ML</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title">Skills</h2>
+                        <div class="skills-grid">
+                            <div class="skill-tag">SQL</div>
+                            <div class="skill-tag">Big Query</div>
+                            <div class="skill-tag">Power BI</div>
+                            <div class="skill-tag">Excel</div>
+                            <div class="skill-tag">Tableau</div>
+                            <div class="skill-tag">Python</div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title">Education</h2>
+                        <div class="education-item">
+                            <div class="degree">Post Graduate Program in Management</div>
+                            <div class="institution">Institute Of Management Technology, Ghaziabad</div>
+                            <div class="edu-duration">June 2012 — April 2014</div>
+                            <div style="font-size: 0.85rem; color: #7f8c8d; margin-top: 5px;">(#7 in Business School Ranking in Economic Times)</div>
+                        </div>
+                        <div class="education-item">
+                            <div class="degree">Bachelor of Technology</div>
+                            <div class="institution">West Bengal University of Technology, Calcutta</div>
+                            <div class="edu-duration">June 2007 — June 2011</div>
+                            <div style="font-size: 0.85rem; color: #7f8c8d; margin-top: 5px;">Computer Science & Engineering</div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title">Languages</h2>
+                        <div class="languages">
+                            <div class="language">English</div>
+                            <div class="language">Bengali</div>
+                            <div class="language">Hindi</div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title">Additional Info</h2>
+                        <div class="additional-info">
+                            <strong>Blogger on Towards Data Science</strong>
+                        </div>
+                    </section>
+                </aside>
+
+                <main class="content">
+                    <section class="section">
+                        <h2 class="section-title">Employment History</h2>
+                        
+                        <div class="job">
+                            <div class="job-header">
+                                <h3 class="job-title">Product Manager/Analytics – Feed</h3>
+                                <div class="company">Verse Innovation (Josh)</div>
+                                <div class="duration">July 2023 — Present</div>
+                            </div>
+                            <ul class="achievements">
+                                <li>Developed a strategy targeting shallow users by leveraging key user insights and A/B testing, resulting in a 5%+ increase in time spent on the app.</li>
+                                <li>Collaborated with engineering and content teams to model recommendation algorithms and boost content ingestion, leading to a ~20% increase in content diversity and the emergence of new user interest genres.</li>
+                                <li>Formulated content serving strategies to surface consecutive content cards from multiple user interests, achieving a 5–10% increase in session depth.</li>
+                                <li>Created new content sampling strategies, that surfaced unexplored content at the optimal session depth – balancing discovery with user retention.</li>
+                                <li>Conceptualized and built the onboarding experience for new users from scratch, enabling content discovery without any history on the app.</li>
+                            </ul>
+                        </div>
+
+                        <div class="job">
+                            <div class="job-header">
+                                <h3 class="job-title">Business Intelligence Analyst</h3>
+                                <div class="company">Cipla</div>
+                                <div class="duration">August 2022 — July 2023</div>
+                            </div>
+                            <div style="font-style: italic; color: #7f8c8d; margin-bottom: 15px;">Heading Analytics at Cipla Digital Health Limited – a newly created unit by Cipla</div>
+                            <ul class="achievements">
+                                <li>Set up data architecture and established the foundation of product analytics for a newly launched lung health management app, leading to 100% shift from manual to automated reporting.</li>
+                                <li>Defined key user events and payload parameters to be captured for every interaction.</li>
+                                <li>Reduced onboarding journey from 14 to 5 steps, leading to 27% increase in onboarding rate.</li>
+                            </ul>
+                        </div>
+
+                        <div class="job">
+                            <div class="job-header">
+                                <h3 class="job-title">Senior Data Analyst, Founder's Office</h3>
+                                <div class="company">Mcaffeine</div>
+                                <div class="duration">August 2020 — August 2022</div>
+                            </div>
+                            <div style="font-style: italic; color: #7f8c8d; margin-bottom: 15px;">Fastest growing start-up in the personal care segment</div>
+                            <ul class="achievements">
+                                <li>Increased repeat user base by 15-20%, through targeted product and customer segmentation strategies.</li>
+                                <li>Reduced manual effort by 40% by implementing data automation processes.</li>
+                                <li>Developed user acquisition and retention strategies tailored to product lines, for instance Body care for acquisition and Face care for retention.</li>
+                                <li>Drafted detailed documentation and responses for investor queries and internal/external audits during funding rounds.</li>
+                                <li>Oversaw P&L ownership for bundled product offerings, optimizing pricing and profitability.</li>
+                            </ul>
+                        </div>
+
+                        <div class="job">
+                            <div class="job-header">
+                                <h3 class="job-title">Manager – Client Growth and Business Intelligence</h3>
+                                <div class="company">Bizongo</div>
+                                <div class="duration">January 2019 — March 2020</div>
+                            </div>
+                            <div style="font-style: italic; color: #7f8c8d; margin-bottom: 15px;">Leading business-to-business marketplace for packaging materials</div>
+                            <ul class="achievements">
+                                <li>Developed and executed business development strategies targeting unexplored and churned customer segments, achieving a 30–50% revival rate by showcasing enhanced capabilities.</li>
+                                <li>Prevented monthly revenue loss exceeding 60 Lakhs by automating critical reports for ecommerce players and establishing a standard process to penalize service breaches.</li>
+                            </ul>
+                        </div>
+
+                        <div class="job">
+                            <div class="job-header">
+                                <h3 class="job-title">Category Manager - New Categories</h3>
+                                <div class="company">Fynd</div>
+                                <div class="duration">October 2016 — November 2018</div>
+                            </div>
+                            <div style="font-style: italic; color: #7f8c8d; margin-bottom: 15px;">Start-up facilitating online to offline commerce</div>
+                            <ul class="achievements">
+                                <li>Developed product vision and created category roadmap for Kids Categories.</li>
+                                <li>Built a brand health scorecard and set processes to identify brands which need improvement on key KPIs.</li>
+                                <li>Spearheaded a team to achieve month on month targets of revenue through brand promotions.</li>
+                                <li>Felicitated with "Cracku of the year" Award for solving problems with data and technology.</li>
+                                <li>Won a cash prize of 1 lakh rupees for securing the first position in a business plan competition, "Eureka".</li>
+                            </ul>
+                        </div>
+
+                        <div class="job">
+                            <div class="job-header">
+                                <h3 class="job-title">Previous Work</h3>
+                            </div>
+                            <ul class="achievements">
+                                <li><strong>Deputy Manager – Brand Solutions, Askmebazaar</strong> (May 2016 — September 2016)</li>
+                                <li><strong>Manager – Media Planning, Groupm</strong> (May 2014 — May 2016)</li>
+                            </ul>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling and animation effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate elements as they come into view
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all job elements
+            document.querySelectorAll('.job').forEach(job => {
+                job.style.opacity = '0';
+                job.style.transform = 'translateY(20px)';
+                job.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(job);
+            });
+
+            // Add click to copy email functionality
+            document.querySelector('.contact-info').addEventListener('click', function(e) {
+                if (e.target.textContent.includes('@')) {
+                    navigator.clipboard.writeText('pritha1989@gmail.com').then(() => {
+                        // Show brief success message
+                        const originalText = e.target.textContent;
+                        e.target.textContent = 'Email copied!';
+                        setTimeout(() => {
+                            e.target.textContent = originalText;
+                        }, 2000);
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
