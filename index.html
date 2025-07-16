@@ -2,537 +2,369 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pritha Saha - Product Manager</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f5f5f5;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .resume-card {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
-            margin: 20px 0;
-        }
-
-        .header {
-            background: #2c2c2c;
-            color: white;
-            padding: 40px;
-            text-align: center;
-            position: relative;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .name {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .title {
-            font-size: 1.4rem;
-            font-weight: 300;
-            color: #ecf0f1;
-            margin-bottom: 20px;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #bdc3c7;
-        }
-
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 0;
-        }
-
-        .sidebar {
-            background: #f8f9fa;
-            padding: 40px;
-            border-right: 1px solid #e9ecef;
-        }
-
-        .content {
-            padding: 40px;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #2c2c2c;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #666;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background: #2c2c2c;
-        }
-
-        .job {
-            margin-bottom: 35px;
-            padding: 25px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            border-left: 4px solid #666;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .job:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-
-        .job-header {
-            margin-bottom: 15px;
-        }
-
-        .job-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #2c2c2c;
-            margin-bottom: 5px;
-        }
-
-        .company {
-            font-size: 1.1rem;
-            color: #666;
-            font-weight: 500;
-            margin-bottom: 5px;
-        }
-
-        .duration {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .achievements {
-            list-style: none;
-            margin-top: 15px;
-        }
-
-        .achievements li {
-            margin-bottom: 12px;
-            padding-left: 20px;
-            position: relative;
-            color: #34495e;
-            line-height: 1.7;
-        }
-
-        .achievements li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: #666;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .skill-tag {
-            background: #2c2c2c;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 4px;
-            text-align: center;
-            font-size: 0.9rem;
-            font-weight: 500;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-        }
-
-        .education-item {
-            margin-bottom: 25px;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-            border-left: 4px solid #666;
-        }
-
-        .degree {
-            font-weight: 600;
-            color: #2c2c2c;
-            margin-bottom: 5px;
-        }
-
-        .institution {
-            color: #666;
-            font-weight: 500;
-            margin-bottom: 5px;
-        }
-
-        .edu-duration {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-        }
-
-        .profile-highlights {
-            background: linear-gradient(135deg, #f39c12, #e67e22);
-            color: white;
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
-
-        .profile-highlights ul {
-            list-style: none;
-        }
-
-        .profile-highlights li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .profile-highlights li::before {
-            content: '★';
-            position: absolute;
-            left: 0;
-            color: #f1c40f;
-            font-size: 1.2rem;
-        }
-
-        .languages {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-
-        .language {
-            background: #f0f0f0;
-            color: #2c2c2c;
-            padding: 8px 15px;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-
-        .additional-info {
-            background: #2c2c2c;
-            color: white;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .name {
-                font-size: 2.2rem;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .sidebar, .content {
-                padding: 25px;
-            }
-            
-            .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.8s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    <title>Nishnata Nandi - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class="container">
-        <div class="resume-card fade-in">
-            <header class="header">
-                <div class="header-content">
-                    <h1 class="name">Pritha Saha</h1>
-                    <p class="title">Product Manager (Feed Analytics)</p>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <span>📧</span>
-                            <span>pritha1989@gmail.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <span>📱</span>
-                            <span>+91 7503139201</span>
-                        </div>
-                    </div>
-                </div>
-            </header>
 
-            <div class="main-content">
-                <aside class="sidebar">
-                    <section class="section">
-                        <h2 class="section-title">Profile</h2>
-                        <div class="profile-highlights">
-                            <ul>
-                                <li>11+ years of experience across diverse industries – Media, Retail, Healthcare, Consumer Technology</li>
-                                <li>Experienced in end-to-end analytics workflows: data extraction, transformation, visualization, and reporting</li>
-                                <li>Proven track record of enabling strategic business and product decisions through data-driven insights</li>
-                                <li>Strong experience in working with cross-functional teams, including Product, Engineering, Marketing, and AI/ML</li>
-                            </ul>
-                        </div>
-                    </section>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8EERQX5SP9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-                    <section class="section">
-                        <h2 class="section-title">Skills</h2>
-                        <div class="skills-grid">
-                            <div class="skill-tag">SQL</div>
-                            <div class="skill-tag">Big Query</div>
-                            <div class="skill-tag">Power BI</div>
-                            <div class="skill-tag">Excel</div>
-                            <div class="skill-tag">Tableau</div>
-                            <div class="skill-tag">Python</div>
-                        </div>
-                    </section>
+  gtag('config', 'G-8EERQX5SP9');
+</script>
 
-                    <section class="section">
-                        <h2 class="section-title">Education</h2>
-                        <div class="education-item">
-                            <div class="degree">Post Graduate Program in Management</div>
-                            <div class="institution">Institute Of Management Technology, Ghaziabad</div>
-                            <div class="edu-duration">June 2012 — April 2014</div>
-                            <div style="font-size: 0.85rem; color: #7f8c8d; margin-top: 5px;">(#7 in Business School Ranking in Economic Times)</div>
-                        </div>
-                        <div class="education-item">
-                            <div class="degree">Bachelor of Technology</div>
-                            <div class="institution">West Bengal University of Technology, Calcutta</div>
-                            <div class="edu-duration">June 2007 — June 2011</div>
-                            <div style="font-size: 0.85rem; color: #7f8c8d; margin-top: 5px;">Computer Science & Engineering</div>
-                        </div>
-                    </section>
 
-                    <section class="section">
-                        <h2 class="section-title">Languages</h2>
-                        <div class="languages">
-                            <div class="language">English</div>
-                            <div class="language">Bengali</div>
-                            <div class="language">Hindi</div>
-                        </div>
-                    </section>
-
-                    <section class="section">
-                        <h2 class="section-title">Additional Info</h2>
-                        <div class="additional-info">
-                            <strong>Blogger on Towards Data Science</strong>
-                        </div>
-                    </section>
-                </aside>
-
-                <main class="content">
-                    <section class="section">
-                        <h2 class="section-title">Employment History</h2>
-                        
-                        <div class="job">
-                            <div class="job-header">
-                                <h3 class="job-title">Product Manager/Analytics – Feed</h3>
-                                <div class="company">Verse Innovation (Josh)</div>
-                                <div class="duration">July 2023 — Present</div>
-                            </div>
-                            <ul class="achievements">
-                                <li>Developed a strategy targeting shallow users by leveraging key user insights and A/B testing, resulting in a 5%+ increase in time spent on the app.</li>
-                                <li>Collaborated with engineering and content teams to model recommendation algorithms and boost content ingestion, leading to a ~20% increase in content diversity and the emergence of new user interest genres.</li>
-                                <li>Formulated content serving strategies to surface consecutive content cards from multiple user interests, achieving a 5–10% increase in session depth.</li>
-                                <li>Created new content sampling strategies, that surfaced unexplored content at the optimal session depth – balancing discovery with user retention.</li>
-                                <li>Conceptualized and built the onboarding experience for new users from scratch, enabling content discovery without any history on the app.</li>
-                            </ul>
-                        </div>
-
-                        <div class="job">
-                            <div class="job-header">
-                                <h3 class="job-title">Business Intelligence Analyst</h3>
-                                <div class="company">Cipla</div>
-                                <div class="duration">August 2022 — July 2023</div>
-                            </div>
-                            <div style="font-style: italic; color: #7f8c8d; margin-bottom: 15px;">Heading Analytics at Cipla Digital Health Limited – a newly created unit by Cipla</div>
-                            <ul class="achievements">
-                                <li>Set up data architecture and established the foundation of product analytics for a newly launched lung health management app, leading to 100% shift from manual to automated reporting.</li>
-                                <li>Defined key user events and payload parameters to be captured for every interaction.</li>
-                                <li>Reduced onboarding journey from 14 to 5 steps, leading to 27% increase in onboarding rate.</li>
-                            </ul>
-                        </div>
-
-                        <div class="job">
-                            <div class="job-header">
-                                <h3 class="job-title">Senior Data Analyst, Founder's Office</h3>
-                                <div class="company">Mcaffeine</div>
-                                <div class="duration">August 2020 — August 2022</div>
-                            </div>
-                            <div style="font-style: italic; color: #7f8c8d; margin-bottom: 15px;">Fastest growing start-up in the personal care segment</div>
-                            <ul class="achievements">
-                                <li>Increased repeat user base by 15-20%, through targeted product and customer segmentation strategies.</li>
-                                <li>Reduced manual effort by 40% by implementing data automation processes.</li>
-                                <li>Developed user acquisition and retention strategies tailored to product lines, for instance Body care for acquisition and Face care for retention.</li>
-                                <li>Drafted detailed documentation and responses for investor queries and internal/external audits during funding rounds.</li>
-                                <li>Oversaw P&L ownership for bundled product offerings, optimizing pricing and profitability.</li>
-                            </ul>
-                        </div>
-
-                        <div class="job">
-                            <div class="job-header">
-                                <h3 class="job-title">Manager – Client Growth and Business Intelligence</h3>
-                                <div class="company">Bizongo</div>
-                                <div class="duration">January 2019 — March 2020</div>
-                            </div>
-                            <div style="font-style: italic; color: #7f8c8d; margin-bottom: 15px;">Leading business-to-business marketplace for packaging materials</div>
-                            <ul class="achievements">
-                                <li>Developed and executed business development strategies targeting unexplored and churned customer segments, achieving a 30–50% revival rate by showcasing enhanced capabilities.</li>
-                                <li>Prevented monthly revenue loss exceeding 60 Lakhs by automating critical reports for ecommerce players and establishing a standard process to penalize service breaches.</li>
-                            </ul>
-                        </div>
-
-                        <div class="job">
-                            <div class="job-header">
-                                <h3 class="job-title">Category Manager - New Categories</h3>
-                                <div class="company">Fynd</div>
-                                <div class="duration">October 2016 — November 2018</div>
-                            </div>
-                            <div style="font-style: italic; color: #7f8c8d; margin-bottom: 15px;">Start-up facilitating online to offline commerce</div>
-                            <ul class="achievements">
-                                <li>Developed product vision and created category roadmap for Kids Categories.</li>
-                                <li>Built a brand health scorecard and set processes to identify brands which need improvement on key KPIs.</li>
-                                <li>Spearheaded a team to achieve month on month targets of revenue through brand promotions.</li>
-                                <li>Felicitated with "Cracku of the year" Award for solving problems with data and technology.</li>
-                                <li>Won a cash prize of 1 lakh rupees for securing the first position in a business plan competition, "Eureka".</li>
-                            </ul>
-                        </div>
-
-                        <div class="job">
-                            <div class="job-header">
-                                <h3 class="job-title">Previous Work</h3>
-                            </div>
-                            <ul class="achievements">
-                                <li><strong>Deputy Manager – Brand Solutions, Askmebazaar</strong> (May 2016 — September 2016)</li>
-                                <li><strong>Manager – Media Planning, Groupm</strong> (May 2014 — May 2016)</li>
-                            </ul>
-                        </div>
-                    </section>
-                </main>
-            </div>
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <img src="images/brand-logo.jpg" alt="NXZ" class="logo">
+        </div>
+        <div class="top-bar-right">
+            <a href="https://www.linkedin.com/in/pritha-saha/" title="Profile"><i class="fa-solid fa-user"></i></a>
+            <a href="mailto:pritha1989@gmail.com" title="Email"><i class="fa-regular fa-envelope"></i></a>
+            <a href="tel:+917503139201" title="Phone"><i class="fa-solid fa-phone-flip"></i></a>
+            <a href="#info" title="Info"><i class="fa-regular fa-circle-question"></i></a>
         </div>
     </div>
 
-    <script>
-        // Add smooth scrolling and animation effects
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animate elements as they come into view
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
+    <div class="container">
+    <aside class="sidebar">
+        <img src="images/profile.jpeg" alt="Nishnata Nandi">
+        <div class="availability">Nishnata is available for hire</div>
+        <a href="mailto:pritha1989@gmail.com" class="hire-button">Hire Nish</a>
+    </aside>
+    <main class="content">
+        <header>
+            <h1>Nishnata Nandi</h1>
+            <p class="verified">✅ Verified Expert in Product Management</p>
+            <p class="location">Group Product Manager located in Munich, Germany </p>
+            
+        </header>
 
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
+        <section class="tags">
+            <div class="tag">Product Management</div>
+            <div class="tag">MVP to Growth Hacking</div>
+            <div class="tag">Agile Product Management</div>
+            <div class="tag">Scrum Master Consulting</div>
+            <div class="tag">New Market Entry</div>
+            <div class="tag">Digital Transformation</div>
+            <div class="tag">Customer targeting</div>
+            <div class="tag">Customer Experience</div>
+            <div class="tag">Design Thinking</div>
+            <div class="tag">AI/ML use cases</div>
+            <div class="tag">Compliance and Security</div>
+        </section>
 
-            // Observe all job elements
-            document.querySelectorAll('.job').forEach(job => {
-                job.style.opacity = '0';
-                job.style.transform = 'translateY(20px)';
-                job.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(job);
-            });
+        <section class="bio">
+            <h2>BIO</h2>
+            <p>Nishnata is a knowledgeable product lead and a seasoned growth strategist with more than a decade of product experience. She's worked in various capacities and led successful teams at Mercedes-Benz and Amazon from C-suite presentations to hunting within huge volumes of data in the pursuit of making the best decisions. Nishnata can help organizations scale with tech innovation and product based collaboration roadmap, AGILE ground-up planning, design-thinking based workshops, AI based customer centric decision making</p>
+        </section>
 
-            // Add click to copy email functionality
-            document.querySelector('.contact-info').addEventListener('click', function(e) {
-                if (e.target.textContent.includes('@')) {
-                    navigator.clipboard.writeText('pritha1989@gmail.com').then(() => {
-                        // Show brief success message
-                        const originalText = e.target.textContent;
-                        e.target.textContent = 'Email copied!';
-                        setTimeout(() => {
-                            e.target.textContent = originalText;
-                        }, 2000);
-                    });
-                }
-            });
-        });
-    </script>
+<section class="projects">
+    <div class="section-divider"></div> <h2>PROJECT HIGHLIGHTS</h2>
+    <div class="project">
+        <h3><a href="#project-history" >Amazon Prime Day- Project Management</a></h3>
+        <p>Led tech strategy in West Japan-including automation of workforce management and ML forecasting for delivery optimization- breaking record with 30% increase in package delivery (62K daily)</p>
+    </div>
+    <div class="project">
+        <h3><a href="#project-history" >Expansion of eCommerce MVP to >9 global markets</a></h3>
+        <p>Led MVPs and POCs in EMEA. Achieved 85% global retention KPI as global product lead. Enhanced CX using ML-based persona targeting and A/B testing, boosting onboarding by 60% and leads by 130%</p>
+    </div>
+    <div class="project">
+       <h3><a href="#project-history">Platform As A Service- API, regulations and data security</a></h3>
+        <p>Ensuring fault-tolerant architecture in 3P integrations. Proactively identified risks, mitigating checkout disruptions while enhancing scalability, resilience for seamless ecommerce transactions while ensuring risk and regulatory compliance </p>
+    </div>
+</section>
+
+       <section class="accordion-section">
+    <div class="accordion">
+        <div class="accordion-item">
+            <button class="accordion-header">WORK EXPERIENCE<span class="accordion-icon">▼</span></button>
+            <div class="accordion-body">
+                <div class="timeline-wrapper">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024–2024</div>
+                        <div class="timeline-content">
+                          <h3>Senior Project Manager - Tech</h3>
+                          <div class="timeline-company">Amazon, Japan</div>
+                          <p>Managed sustainability-focused operations and vendor negotiations.</p>
+                          <p>Refined data analysis for daily performance optimization.</p>
+                          <p>Enhanced forecasting models by identifying operational risks.</p>
+
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2022–2024</div>
+                        <div class="timeline-content">
+
+                          <h3>Global Product Lead</h3>
+                          <div class="timeline-company">Mercedes-Benz, Germany</div>
+                          <p>Directed product strategy and lifecycle management.</p>
+                          <p>Streamlined AI-driven automation for cross-team efficiency.</p>
+                          <p>Built and mentored a high-performing team in Agile workflows.</p>
+
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2019–2022</div>
+                        <div class="timeline-content">  
+                          <h3>Product Manager</h3>
+                          <div class="timeline-company">Mercedes-Benz, Germany</div>
+                          <p>Led roadmap execution for market expansion and product fit.</p>
+                          <p>Developed scalable customer experience strategies with automation.</p>
+                          <p>Oversaw Agile planning, backlog management, and risk assessment.</p>
+
+                        </div>
+                    </div>
+
+                     <div class="timeline-item">
+                        <div class="timeline-year">2017–2018</div>
+                        <div class="timeline-content">  
+                          <h3>Digital Transformation Expert</h3>
+                          <div class="timeline-company">Virtusa Consulting Services, Dubai</div>
+                          <p>Designed scalable solutions to enhance revenue growth.</p>
+                          <p>Refined customer journeys through improved digital touchpoints.</p>
+                          <p>Identified key opportunities for business expansion.</p>
+
+                        </div>
+                    </div>
+
+                     <div class="timeline-item">
+                        <div class="timeline-year">2011–2016</div>
+                        <div class="timeline-content">  
+                         <h3>Developer Experience</h3>
+                         <div class="timeline-company">Infosys/Sapient/Cognizant, India</div>
+                          <p>Developed omnichannel IT systems for seamless digital integration.</p>
+                          <p>Implemented secure transactions through encryption protocols.</p>
+                          <p>Optimized commerce experiences with scalable infrastructure.</p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-header">PROJECT HISTORY<span class="accordion-icon">▼</span></button>
+            <div class="accordion-body" id="project-history">
+             <div class="project-history-item">
+                <h3>AI-Driven Personalization System</h3>
+                	<p>Developed and led an AI and machine learning personalization strategy, to better upsell and tailor what customers see based on their actions and preferences. This involved psychographic segmentation and targeting.</p>
+                	<p>Designed recommendation models that automatically changed interactions and product offers, making them more relevant and timely, and helping to keep customers using our e-commerce platform.</p>
+                	<p>Managed the use of AI to understand different customer personas and show them specific content, making their experience more relevant across all touchpoints.</p>
+                	<p>Ensured the brand looked consistent everywhere while using market-based localisation, keeping the core brand the same for all customers in different places </p>
+	     </div>
+
+             <div class="project-history-item">
+                <h3>Market Expansion & Digital Growth</h3>
+               	 <p>Defined and implemented "product growth strategies" for new market entry, aligning product frameworks with regional customer expectations</p>
+               	 <p>Led "omnichannel experience" development, ensuring seamless transition across platforms with consistent branding, acquisition, and retention strategies.</p>
+               	 <p>Collaborated closely with legal and compliance stakeholders to navigate complex regulatory landscapes to enable rapid innovation in digital ecosystems while ensuring compliance.</p>
+               	 <p>Streamlined internal collaboration to reduce "time-to-market" and integrated a unified framework for fraud prevention and risk assessment.</p>
+               	 <p>Cultivated and maintained strong, trust-based relationships with key partners, ensuring long-term strategic alignment and mutual success in product initiatives.</p>
+	     </div>
+
+ <div class="project-history-item">
+                <h3>Last-mile logistics People and Tech Management</h3>
+                	<p>Defined and implemented end-to-end logistics and tech strategy, ensuring scalability and efficiency for peak demand periods with 22 direct reports</p>
+                	<p>Worked closely with ML and engineering teams to optimize machine learning models for demand prediction, adding finer variables on topography and seismic activity, refining last-mile delivery and inventory allocation.</p>
+                	<p>Cross-Functional Coordination – Led engineering, operations, and vendor teams, ensuring streamlined workflows and rapid issue resolution.</p>
+                	<p>Monitored 1,200+ metrics, extracting actionable insights with daily reports to enhance delivery speed, reduce bottlenecks, and improve customer satisfaction.</p>
+	     </div>
+
+              <div class="project-history-item">
+                <h3>Banking Digital Strategy</h3>
+                <p>Executed data-driven customer experience strategies focusing on premium banking segments, improving engagement and personalization.</p>
+                <p>Championed product diversification initiatives to introduce scalable fintech solutions, strategically expanding business capabilities and increasing market penetration within the financial services sector.</p>
+
+	     </div>
+
+              <div class="project-history-item">
+                <h3>Omnichannel Payment Security</h3>
+                <p>Designed and deployed secure, tokenized payment infrastructures to protect transactions while maintaining efficiency across multiple channels.</p>
+                <p>Developed advanced fraud prevention mechanisms, ensuring compliance with data protection regulations while enhancing security protocols.</p>
+                <p>Optimized purchasing experiences through a scalable payment infrastructure, enabling seamless and frictionless commerce.</p>
+	     </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+    <button class="accordion-header">EDUCATION <span class="accordion-icon">▼</span></button>
+    <div class="accordion-body">
+        <div class="education-item">
+            <div class="education-degree">
+                MBA (Masters in Business Administration)
+                <span class="education-year">2016 – 2017</span>
+            </div>
+            <div class="education-institution">
+                Indian School of Business, Hyderabad, India
+            </div>
+           </div>
+
+        <div class="education-item">
+            <div class="education-degree">
+                Bachelor's Degree in Computer Science & Engineering
+                <span class="education-year">2007 – 2011</span>
+            </div>
+            <div class="education-institution">
+                West Bengal University of Technology, India
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="accordion-item">
+    <button class="accordion-header">CERTIFICATIONS <span class="accordion-icon">▼</span></button>
+    <div class="accordion-body">
+        <div class="certification-item">
+            <div class="certification-name">
+                Certified Scrum Product Owner (CSPO)
+            </div>
+            <div class="certification-provider">
+                Scrum Alliance
+            </div>
+        </div>
+        <div class="certification-item">
+            <div class="certification-name">
+                Scaled Agile Certified – SAFe
+            </div>
+            <div class="certification-provider">
+                Scaled Agile, Inc.
+            </div>
+        </div>
+        <div class="certification-item">
+            <div class="certification-name">
+                Lean Six Sigma
+            </div>
+            <div class="certification-provider">
+                Amazon
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="accordion-item">
+    <button class="accordion-header">SKILLS <span class="accordion-icon">▼</span></button>
+    <div class="accordion-body">
+        <div class="skills-category">
+            <h4 class="skills-category-title">Tools</h4>
+            <p class="skills-list">
+                <span class="skill">MS Office</span>,
+                <span class="skill">Balsamiq</span>,
+                <span class="skill">Figma</span>,
+                <span class="skill">Airtable</span>,
+                <span class="skill">Mural</span>,
+                <span class="skill">Miro</span>,
+                <span class="skill">Jira</span>,
+                <span class="skill">Confluence</span>,
+                <span class="skill">Trello</span>,
+                <span class="skill">Asana</span>,
+                <span class="skill">Aha!</span>,
+                <span class="skill">Google Analytics</span>,
+                <span class="skill">Tableau</span>,
+                <span class="skill">SurveyMonkey</span>,
+                <span class="skill">Grafana</span>,
+                <span class="skill">Eloqua</span>,
+                <span class="skill">Adobe Marketing Cloud</span>
+            </p>
+        </div>
+
+        <div class="skills-category">
+            <h4 class="skills-category-title">Product Strategy & Execution</h4>
+            <p class="skills-list">
+                <span class="skill">AI/ML Product Innovation</span>,
+                <span class="skill">Road mapping</span>,
+                <span class="skill">MVP Design</span>,
+                <span class="skill">CI/CD</span>
+            </p>
+        </div>
+
+        <div class="skills-category">
+            <h4 class="skills-category-title">Leadership</h4>
+            <p class="skills-list">
+                <span class="skill">Servant-Leadership</span>,
+                <span class="skill">Cross-functional Team Building</span>,
+                <span class="skill">Stakeholder Engagement</span>
+            </p>
+        </div>
+
+        <div class="skills-category">
+            <h4 class="skills-category-title">Customer Experience</h4>
+            <p class="skills-list">
+                <span class="skill">CX Optimization</span>,
+                <span class="skill">Persona-based Design</span>,
+                <span class="skill">Omnichannel Journeys</span>,
+                <span class="skill">Luxury Standards</span>
+            </p>
+        </div>
+
+        <div class="skills-category">
+            <h4 class="skills-category-title">Analytics & Data</h4>
+            <p class="skills-list">
+                <span class="skill">KPI Tracking</span>,
+                <span class="skill">Forecasting</span>,
+                <span class="skill">Predictive Models</span>,
+                <span class="skill">SQL</span>,
+                <span class="skill">Real-time Dashboards</span>
+            </p>
+        </div>
+
+        <div class="skills-category">
+            <h4 class="skills-category-title">Compliance & Security</h4>
+            <p class="skills-list">
+                <span class="skill">GDPR</span>,
+                <span class="skill">PII/PCI-DSS</span>,
+                <span class="skill">Tokenization</span>,
+                <span class="skill">Regulatory Alignment</span>,
+                <span class="skill">Legal and Data protection</span>
+            </p>
+        </div>
+
+        <div class="skills-category">
+            <h4 class="skills-category-title">Agile & Scalable Delivery</h4>
+            <p class="skills-list">
+                <span class="skill">SAFe</span>,
+                <span class="skill">OKRs</span>,
+                <span class="skill">Lean Six Sigma</span>,
+                <span class="skill">Design Thinking</span>
+            </p>
+        </div>
+
+        <div class="skills-category">
+            <h4 class="skills-category-title">Technical</h4>
+            <p class="skills-list">
+                <span class="skill">SQL</span>,
+                <span class="skill">CSS</span>,
+                <span class="skill">JSON</span>,
+                <span class="skill">JS</span>,
+                <span class="skill">AWS</span>,
+                <span class="skill">Java</span>,
+                <span class="skill">C++</span>,
+                <span class="skill">API</span>,
+                <span class="skill">GPT-4</span>,
+                <span class="skill">Gemini</span>,
+                <span class="skill">Copilot</span>,
+                <span class="skill">IBM Watson</span>,
+                <span class="skill">API</span>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+    </div>
+</section>
+
+    </main>
+</div>
+<script src="scripts.js"></script>
 </body>
 </html>
