@@ -1,0 +1,519 @@
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: #222;
+}
+
+.top-bar {
+    background-color: black; /* Wider black band */
+    padding: 15px 20px; /* Adjust vertical padding for height */
+    display: flex;
+    justify-content: space-between; /* Space out left and right content */
+    align-items: center; /* Vertically align items */
+}
+
+.top-bar-left {
+    /* Styles for the left side (logo) */
+}
+
+.top-bar-left .logo {
+    height: 30px; /* Adjust logo height as needed */
+    margin-left: 70px;
+
+}
+
+.top-bar-right {
+    /* Styles for the right side (icons) */
+    display: flex;
+    gap: 15px; /* Space between icons */
+    margin-right: 70px;
+}
+
+.top-bar-right a {
+    color: white; /* Style for the icons/links */
+    text-decoration: none;
+    font-size: 1.2rem; /* Adjust icon size */
+}
+
+.top-bar-right a:hover {
+    color: #ddd; /* Slightly lighter on hover */
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.sidebar {
+    width: 250px;
+    text-align: center;
+    padding: 10px;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar img {
+    width: 180px;
+    height: 200px; /* ensures square shape */
+    object-fit: cover; /* keeps image proportionate and centered */
+    object-position: top;
+    border-radius: 12px; /* soft rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* subtle shadow */
+    margin-bottom: 1rem;
+}
+
+.availability {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 0.5rem;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.hire-button {
+    background-color: #0073e6;
+    text-decoration: none;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 0 20px;
+}
+
+header {
+    margin-bottom: 20px; /* Add some space below the header */
+}
+
+header h1 {
+    font-size: 1.8rem;
+    color: #0073e6;
+    margin-bottom: 5px; /* Reduce space below the name */
+    font-weight: 600;
+}
+
+.verified {
+    font-size: 0.9rem;
+    color: #4caf50;
+    margin-bottom: 5px; /* Reduce space below verified status */
+}
+
+header p.title {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px; /* Reduce space below title */
+}
+
+header p.location {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px; /* Add a bit more space below location and member info */
+}
+
+/* --- Expertise/Tags Section --- */
+.tags {
+    margin-top: 20px; /* Add more space before the expertise/tags */
+    margin-bottom: 20px; /* Keep some space below */
+}
+
+.tag {
+    display: inline-block;
+    background: #f0f0f0;
+    color: #333;
+    padding: 6px 10px;
+    margin: 5px 5px 0 0;
+    border-radius: 6px;
+    font-size: 0.85rem;
+}
+
+/* --- Bio Section --- */
+.bio {
+    margin-top: 40px; /* Add more space before the bio section */
+    margin-bottom: 30px; /* Keep some space below */
+}
+
+.bio h2 {
+    font-size: 1rem;
+    font-weight: 600;
+
+}
+
+.bio p {
+    margin-top: 0px; /* Add space below the bio heading */
+    line-height: 1.6;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+
+.tag {
+    display: inline-block;
+    background: #f0f0f0;
+    color: #333;
+    padding: 6px 10px;
+    margin: 5px 5px 0 0;
+    border-radius: 6px;
+    font-size: 0.85rem;
+}
+
+section {
+    margin: 30px 0;
+}
+
+.accordion-section {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  
+}
+
+.accordion {
+   border: none; /* Remove the outer border */
+    border-radius: 0; /* Remove border radius */
+    overflow: hidden; /* Keep overflow hidden for internal elements */
+}
+
+.accordion .accordion-item {
+    border-bottom: 1px solid #eee; /* Keep the separator between items */
+}
+
+.accordion .accordion-item:last-child {
+    border-bottom: none; /* Remove border on the last item */
+}
+
+.accordion-header {
+    background: none; /* Remove background color */
+    border: none;
+    padding: 12px 0; /* Adjust padding to align with other headers */
+    width: 100%;
+    text-align: left;
+    font-size: 1rem; /* Same font size as other section titles */
+    font-weight: 600; /* Same font weight */
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: inherit;
+}
+
+.accordion-icon {
+    font-size: 0.8rem;
+    color: #777;
+}
+
+.accordion-body {
+    padding: 15px 0; /* Adjust padding to align with content */
+    background: #fff;
+    display: none; /* Initially hidden */
+}
+
+/* Style the timeline within the accordion */
+.accordion-body .timeline-wrapper {
+    padding-left: 80px;
+}
+
+.accordion-body .timeline-wrapper::before {
+    left: 40px;
+}
+
+.accordion-body .timeline-item {
+    padding-left: 60px;
+}
+
+.accordion-body .timeline-year {
+    left: -20px;
+}
+
+h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content .timeline-company {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+/* --- Section Divider --- */
+.section-divider {
+    border-top: 1px solid #eee; /* Light grey line */
+    margin-bottom: 20px;
+}
+
+/* --- Project Highlights Section --- */
+
+.projects {
+    margin: 30px 0;
+  
+}
+
+.projects h2 { /* Style the Project Highlights heading */
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 15px; /* Adjust spacing below the title */
+    padding-left: 0; /* Remove any potential left padding */
+}
+
+
+.project {
+    margin-bottom: 20px;
+}
+
+.project h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.project h3 a {
+    color: #0073e6; /* Link color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.project h3 a:hover {
+    color: #0056b3; /* Darker shade on hover */
+    text-decoration: underline;
+}
+
+.project p {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* --- Timeline Section (No changes needed here from the last step) ---- */
+.timeline {
+    padding: 20px 0;
+    font-family: 'Inter', sans-serif;
+    margin: 30px auto; /* Add margin to separate from projects */
+}
+
+.timeline-wrapper {
+    position: relative;
+    margin: 0 auto;
+    max-width: 800px;
+    padding-left: 80px;
+}
+
+.timeline-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 40px;
+    width: 2px;
+    height: 100%;
+    background-color: #0073e6;
+}
+
+.timeline-item {
+    margin-bottom: 40px;
+    position: relative;
+    padding-left: 60px;
+}
+
+.timeline-year {
+    background-color: #f9f9f9;
+    color: #0073e6;
+    padding: 8px 15px;
+    border-radius: 15px;
+    width: 100px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: -20px;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.timeline-content {
+    background-color: white;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 1rem;
+}
+
+.timeline-content p {
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* --- Project History Section (No changes needed here from the last step) --- */
+
+.accordion-body .project-history-item {
+    margin-bottom: 20px;
+}
+
+.accordion-body .project-history-item h3 {
+    font-size: 1rem; /* Same as Project Highlights h3 */
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333; /* Similar to other headers */
+}
+
+.accordion-body .project-history-item p {
+    color: #555; /* Similar to other paragraph text */
+    font-size: 0.9rem; /* Similar to other paragraph text */
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+
+/* Existing styles... */
+
+.accordion-body .education-item {
+    margin-bottom: 20px;
+    padding-left: 20px; /* Indent education content */
+    border-left: 2px solid #eee; /* Subtle left border */
+}
+
+.accordion-body .education-degree {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between; /* Align degree and year */
+    align-items: baseline; /* Align year to the baseline of the text */
+}
+
+.accordion-body .education-year {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.accordion-body .education-program {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 3px;
+}
+
+.accordion-body .education-institution {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.accordion-body .education-details {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+
+/* Existing styles... */
+
+.accordion-body .skills-category {
+    margin-bottom: 15px;
+    padding-left: 20px; /* Indent skills content */
+    border-left: 2px solid #eee; /* Subtle left border */
+}
+
+.accordion-body .skills-category-title {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.accordion-body .skills-list {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.accordion-body .skills-list .skill {
+    display: inline-block;
+    margin-right: 8px;
+    margin-bottom: 5px;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.accordion-body .skills-list .skill:last-child {
+    margin-right: 0;
+}
+
+
+/* Existing styles... */
+
+.accordion-body .certification-item {
+    margin-bottom: 15px;
+    padding-left: 20px; /* Indent certification content */
+    border-left: 2px solid #eee; /* Subtle left border */
+    display: flex;
+    flex-direction: column; /* Stack name and provider */
+}
+
+.accordion-body .certification-name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 3px;
+}
+
+.accordion-body .certification-provider {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.accordion-body .certification-date {
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 5px; /* Push date down a bit */
+}
+
+.accordion-body .certification-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Smooth fading animations */
+@keyframes pulse {
+    0% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.1); }
+    100% { transform: translateX(-50%) scale(1); }
+}
+
+/* Adjust for smaller screens if needed */
+@media (max-width: 768px) {
+    .projects {
+        padding: 0 15px;
+    }
+    .timeline-wrapper {
+        padding-left: 60px;
+    }
+    .timeline-wrapper::before {
+        left: 30px;
+    }
+    .timeline-item {
+        padding-left: 40px;
+    }
+    .timeline-year {
+        width: 80px;
+        left: -10px;
+    }
+}
